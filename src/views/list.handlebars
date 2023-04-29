@@ -1,0 +1,11 @@
+<div>
+    Listando los pokemones desde Handlebars...
+</div>
+<div>
+    <ul id="pokemones">
+      {{#each pokemons}}
+      <li>{{this.name}} - {{this.type}}  </li>
+      <a href="/pokemon/{{this.name}}"><img src="{{this.photo}}" alt="" width="100"></a>
+      {{/each}}
+    </ul>
+</div>
