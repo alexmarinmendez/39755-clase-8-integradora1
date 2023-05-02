@@ -1,3 +1,11 @@
+<script>
+  function deletePokemon(name) {
+    fetch(`http://localhost:8080/pokemon/${name}`, {
+      method: "delete"
+    })
+    window.location.href = 'http://localhost:8080/pokemon'
+  }
+</script>
 <div>
     Listando los pokemones desde Handlebars...
 </div>
@@ -6,6 +14,8 @@
       {{#each pokemons}}
       <li>{{this.name}} - {{this.type}}  </li>
       <a href="/pokemon/{{this.name}}"><img src="{{this.photo}}" alt="" width="100"></a>
+      <button onclick="deletePokemon('{{this.name}}')">Delete {{this.name}}</button>
+      <button onclick="window.location.href='http://localhost:8080/pokemon/update/{{this.name}}'">Actualiza los datos de {{this.name}}</button>
       {{/each}}
     </ul>
 </div>
